@@ -7,6 +7,7 @@ __all__ = [
 	# RNG.py
 	"uu_fn",
 	"RNG_unit_uniform",
+	"RNG_uniform",
 	"RNG_unit_normal",
 	"RNG_normal",
 	"RNG_bernoulli",
@@ -21,5 +22,7 @@ __all__ = [
 	"mean",
 	"median",
 	"variance",
-	"sd"
+	"sd",
+	
+	"dataset"
 ]

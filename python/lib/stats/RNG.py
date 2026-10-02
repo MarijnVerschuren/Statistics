@@ -11,6 +11,7 @@ uu_fn = partial(uniform, 0, 1)
 __all__ = [
 	"uu_fn",
 	"RNG_unit_uniform",
+	"RNG_uniform",
 	"RNG_unit_normal",
 	"RNG_normal",
 	"RNG_bernoulli",
@@ -37,6 +38,16 @@ class RNG_unit_uniform:
 	
 	def __call__(self, count: int) -> generator:
 		return (self.next() for _ in range(count))
+
+
+
+class RNG_uniform(RNG_unit_uniform):
+	def __init__(self, a: float, b: float, uu_fn: callable):
+		super().__init__(uu_fn)
+		self.a = a
+		self.b = b
+	
+	def inv_cdf(self, x: float) -> float:	return self.a + x * (self.b - self.a)
 
 
 
